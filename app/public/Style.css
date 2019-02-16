@@ -16,6 +16,12 @@
   white-space: nowrap;
 }
 
+#survey {
+  background-image: url("clouds.jpg");
+  background-size: cover;
+  background-repeat: no-repeat
+}
+
  
 
   
