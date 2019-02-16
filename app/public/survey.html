@@ -15,6 +15,8 @@
 
 <body>
 
+<!--Setting up the html code for the 2nd page, the survey-->
+
   <div class="container" id="survey">
 
     <h2>Survey Questions</h2>
@@ -163,14 +165,14 @@
 
   </div>
 
-  <!-- Modal -->
+  <!-- Modal-This is like an alert -->
   <div id="results-modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
+          <button type="button" class="close" data-dismiss="modal" style="text-align: center;">*</button>
           <h2 class="modal-title"><strong>Best Match</strong></h2>
         </div>
         <div class="modal-body">
@@ -229,23 +231,9 @@
             $("#q10").val()
           ]
         };
-        console.log("Check" + newFriend.scores);
-        // AJAX post the data to the friends API.
-        // $.ajax({ url: "/api/friends", method: "GET"})
-        // .then(function(friendData) {
-        //   console.log(friendData);
-        //   console.log(newFriend.scores);
-        //   for (i=0; i<newFriend.scores.length; i++) {
-        //     console.log(newFriend.scores[i])
-        //     var diff = parseInt(newFriend.scores[i]) - parseInt(friendData[i]);
-          
-        //   }
-        //   console.log("diff " + diff);
-
-        // });
-
-        $.ajax({ url: "/api/friends", method: "POST"})
-        .then(function(data) {
+       
+      
+        $.post("/api/friends", newFriend, function(data) {
           $("#match-name").text(data.name);
           $("#match-img").attr("src", data.photo);
 
@@ -254,6 +242,7 @@
 
           return data;
         });
+        
     
       } else {
         alert("Please fill out all fields before submitting!");

@@ -23,5 +23,19 @@
 }
 
  
+button.close {
+  margin: 0;
+  float: left;
+  }
+
+#match-img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 16em;
+}
+
+.close {
+  float: left;
+}
 
   
