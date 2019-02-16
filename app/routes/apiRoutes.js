@@ -22,3 +22,9 @@ app.get("/api/friends", function(req, res) {
     
     friendsData.push(req.body);
   });
+
+  
+  app.post("/api/friends", function(req, res) {
+    friendsData.push(newFriend);
+    console.log(req.body);
+  });

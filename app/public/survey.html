@@ -231,28 +231,30 @@
         };
         console.log("Check" + newFriend.scores);
         // AJAX post the data to the friends API.
-        $.ajax({ url: "/api/friends", method: "GET"})
-        .then(function(friendData) {
-          console.log(friendData);
-          console.log(newFriend.scores);
-          for (i=0; i<newFriend.scores.length; i++) {
-            console.log(newFriend.scores[i])
-            var diff = parseInt(newFriend.scores[i]) - parseInt(friendData[i]);
+        // $.ajax({ url: "/api/friends", method: "GET"})
+        // .then(function(friendData) {
+        //   console.log(friendData);
+        //   console.log(newFriend.scores);
+        //   for (i=0; i<newFriend.scores.length; i++) {
+        //     console.log(newFriend.scores[i])
+        //     var diff = parseInt(newFriend.scores[i]) - parseInt(friendData[i]);
           
-          }
-          console.log("diff " + diff);
+        //   }
+        //   console.log("diff " + diff);
 
-        });
-        $.post("/api/friends", friends, function (data) {
+        // });
 
-          // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+        $.ajax({ url: "/api/friends", method: "POST"})
+        .then(function(data) {
           $("#match-name").text(data.name);
           $("#match-img").attr("src", data.photo);
 
           // Show the modal with the best match
           $("#results-modal").modal("toggle");
 
+          return data;
         });
+    
       } else {
         alert("Please fill out all fields before submitting!");
       }
