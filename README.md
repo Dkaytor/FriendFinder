@@ -13,3 +13,5 @@ If you miss any of the 10 questions or name and picture fields, a pop-up will ap
 Once all inputs are done, click on the submit button to see your match.
 
 There are also 2 links at the bottom of this page exactly the same as the ones on the first page.
+
+https://hidden-sierra-95063.herokuapp.com/
